@@ -18,6 +18,12 @@
       crossorigin
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Fuente Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="bg-gray-900 text-white font-[Poppins]">
@@ -49,21 +55,11 @@
             >
               <a href="index.html" className="hover:text-cyan-400">Inicio</a>
               <a href="mouse.html" className="hover:text-cyan-400">Mouse</a>
-              <a href="teclados.html" className="hover:text-cyan-400"
-                >Teclados</a
-              >
-              <a href="graficas.html" className="hover:text-cyan-400"
-                >Gráficas</a
-              >
-              <a
-                href="audifonos.html"
-                className="text-cyan-400 font-bold"
-                >Audífonos</a
-              >
+              <a href="teclados.html" className="hover:text-cyan-400">Teclados</a>
+              <a href="graficas.html" className="hover:text-cyan-400">Gráficas</a>
+              <a href="audifonos.html" className="text-cyan-400 font-bold">Audífonos</a>
               <a href="juego.html" className="hover:text-cyan-400">Juego</a>
-              <a href="contacto.html" className="hover:text-cyan-400"
-                >Contacto</a
-              >
+              <a href="contacto.html" className="hover:text-cyan-400">Contacto</a>
             </nav>
           </div>
         </header>
@@ -98,37 +94,37 @@
             nombre: "Audífonos RGB Pro",
             precio: "S/ 220.00",
             desc: "Sonido envolvente virtual 7.1, drivers 40mm, micrófono retráctil con cancelación y luces RGB personalizables.",
-            img: "94.jpg",
+            img: "imagenes/94.jpg",
           },
           {
             nombre: "Audífonos Inalámbricos Ultra",
             precio: "S/ 350.00",
             desc: "Bluetooth 5.2, cancelación activa de ruido (ANC), batería hasta 25h, carga rápida y perfil de audio ajustable por app.",
-            img: "93.webp",
+            img: "imagenes/93.webp",
           },
           {
             nombre: "Audífonos Esports",
             precio: "S/ 160.00",
             desc: "Diseño ligero, micrófono con cancelación de ruido y sonido claro para comunicación en torneos.",
-            img: "96.jpg",
+            img: "imagenes/96.jpg",
           },
           {
             nombre: "Audífonos Studio Pro",
             precio: "S/ 290.00",
             desc: "Drivers de 50mm con respuesta plana, gran aislamiento y cable desmontable, ideal para edición de audio.",
-            img: "91.webp",
+            img: "imagenes/91.webp",
           },
           {
             nombre: "Audífonos Wireless X",
             precio: "S/ 310.00",
             desc: "Conectividad dual (Bluetooth + receptor 2.4GHz), carga rápida y diseño ergonómico premium.",
-            img: "92.jpg",
+            img: "imagenes/92.jpg",
           },
           {
             nombre: "Audífonos RGB Galaxy",
             precio: "S/ 260.00",
             desc: "Luces LED dinámicas, drivers balanceados y compatibilidad multiplataforma (PC/PS/Xbox/Móvil).",
-            img: "95.webp",
+            img: "imagenes/95.webp",
           },
         ];
 
@@ -139,12 +135,14 @@
               <h2 className="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
                 🎧 Audífonos Gamer
               </h2>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {productos.map((p) => (
                   <Producto key={p.nombre} {...p} />
                 ))}
               </div>
             </main>
+
             <footer className="text-center text-gray-400 text-sm py-6 bg-gray-800 bg-opacity-50 mt-10">
               © 2025 NEXO. Todos los derechos reservados.
             </footer>
@@ -152,16 +150,14 @@
         );
       }
 
-      // ==== RENDER React 18 ====
+      // ==== RENDER ====
       ReactDOM.createRoot(document.getElementById("root")).render(<Audifonos />);
 
       // ==== MENÚ MÓVIL ====
-      document
-        .getElementById("menu-toggle")
-        .addEventListener("click", () => {
-          const menu = document.getElementById("menu");
-          menu.classList.toggle("hidden");
-        });
+      document.getElementById("menu-toggle").addEventListener("click", () => {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("hidden");
+      });
     </script>
   </body>
 </html>
