@@ -1,5 +1,62 @@
-[
-  { "nombre": "Mouse RGB Pro", "precio": 120 },
-  { "nombre": "Teclado Mecánico RGB", "precio": 180 },
-  { "nombre": "GTX 1660 Super", "precio": 950 }
-]
+{
+  "categoria": "productos_destacados",
+  "fecha_actualizacion": "2025-11-15",
+  "cantidad_total": 6,
+
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Mouse RGB Pro",
+      "precio": 120,
+      "stock": 15,
+      "marca": "Razer",
+      "imagen": "imagenes/imagen3.jpg",
+      "descripcion": "Mouse con sensor de 16.000 DPI, luces RGB dinámicas y cable trenzado."
+    },
+    {
+      "id": 2,
+      "nombre": "Mouse Inalámbrico Ultra",
+      "precio": 180,
+      "stock": 8,
+      "marca": "Logitech",
+      "imagen": "imagenes/imagen7.jpg",
+      "descripcion": "Mouse inalámbrico con batería de 70h y sensor óptico de alta precisión."
+    },
+    {
+      "id": 3,
+      "nombre": "Teclado Mecánico RGB",
+      "precio": 180,
+      "stock": 12,
+      "marca": "Redragon",
+      "imagen": "imagenes/imagen55.jpg",
+      "descripcion": "Teclado mecánico con switches blue, iluminación RGB y estructura metálica."
+    },
+    {
+      "id": 4,
+      "nombre": "Teclado Compacto 60%",
+      "precio": 220,
+      "stock": 6,
+      "marca": "Anne Pro",
+      "imagen": "imagenes/imagen52.jpg",
+      "descripcion": "Teclado compacto 60%, keycaps PBT y conexión USB-C desmontable."
+    },
+    {
+      "id": 5,
+      "nombre": "Audífonos HyperX Cloud",
+      "precio": 199,
+      "stock": 10,
+      "marca": "HyperX",
+      "imagen": "imagenes/imagen9.jpg",
+      "descripcion": "Sonido envolvente 7.1, micrófono desmontable y almohadillas de memoria."
+    },
+    {
+      "id": 6,
+      "nombre": "GTX 1660 Super",
+      "precio": 950,
+      "stock": 4,
+      "marca": "Nvidia",
+      "imagen": "imagenes/imagen72.jpg",
+      "descripcion": "Tarjeta gráfica ideal para gaming a 1080p, doble ventilador y alta eficiencia."
+    }
+  ]
+}
