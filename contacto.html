@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - NEXO</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- React + Babel -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body class="bg-gray-900 text-white font-[Poppins]">
+    <header
+      class="bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-md py-4 sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 flex justify-between items-center flex-wrap"
+      >
+        <h1
+          class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
+        >
+          🎮 NEXO
+        </h1>
+
+        <!-- Botón hamburguesa -->
+        <button
+          id="menu-toggle"
+          class="md:hidden border border-cyan-400 text-cyan-400 px-3 py-1 rounded-lg text-lg"
+        >
+          ☰
+        </button>
+
+        <nav
+          id="menu"
+          class="hidden md:flex flex-wrap justify-center gap-4 text-sm font-semibold"
+        >
+          <a href="index.html" class="hover:text-cyan-400">Inicio</a>
+          <a href="mouse.html" class="hover:text-cyan-400">Mouse</a>
+          <a href="teclados.html" class="hover:text-cyan-400">Teclados</a>
+          <a href="graficas.html" class="hover:text-cyan-400">Gráficas</a>
+          <a href="audifonos.html" class="hover:text-cyan-400">Audífonos</a>
+          <a href="juego.html" class="hover:text-cyan-400">Juego</a>
+          <a href="contacto.html" class="text-cyan-400 font-bold">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="root" class="max-w-7xl mx-auto px-4 py-10"></main>
+
+    <footer
+      class="text-center text-gray-400 text-sm py-6 bg-gray-800 bg-opacity-50 mt-10"
+    >
+      © 2025 NEXO. Todos los derechos reservados.
+    </footer>
+
+    <script type="text/babel">
+      // ==== COMPONENTE CONTACTO ====
+      function Contacto() {
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          alert("📩 Tu mensaje fue enviado correctamente (simulado).");
+          e.target.reset();
+        };
+
+        return (
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            {/* FORMULARIO */}
+            <form
+              onSubmit={handleSubmit}
+              className="bg-gray-800 p-6 rounded-xl shadow-lg"
+            >
+              <h2 className="text-2xl font-bold mb-4 text-cyan-400">
+                Contáctanos
+              </h2>
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                className="w-full mb-3 p-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Tu correo"
+                className="w-full mb-3 p-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+              <textarea
+                placeholder="Tu mensaje"
+                rows="5"
+                className="w-full mb-3 p-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
+              ></textarea>
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-cyan-400 to-purple-600 px-4 py-2 rounded-md font-semibold hover:scale-105 transition"
+              >
+                Enviar mensaje
+              </button>
+            </form>
+
+            {/* MAPA */}
+            <iframe
+              src="https://www.google.com/maps?q=San+Isidro,+Lima,+Peru&output=embed"
+              className="w-full h-96 rounded-xl shadow-lg border border-gray-700"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        );
+      }
+
+      // ==== RENDER REACT 18 ====
+      ReactDOM.createRoot(document.getElementById("root")).render(<Contacto />);
+
+      // ==== MENÚ HAMBURGUESA ====
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("menu");
+          menu.classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
+
