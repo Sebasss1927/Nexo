@@ -108,6 +108,8 @@
         background: radial-gradient(circle at top right, rgba(155,48,255,0.12), rgba(0,191,255,0.08));
         padding: 3rem 10%;
         text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
       }
       .destacado h3 {
         font-size: 1.8rem;
@@ -143,7 +145,12 @@
         border-radius: 12px;
         padding: 1rem;
         text-align: center;
+        transition: all 0.3s ease;
         box-shadow: 0 0 15px rgba(155, 48, 255, 0.2);
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0 35px rgba(0, 191, 255, 0.45);
       }
       .card img {
         width: 100%;
@@ -151,10 +158,42 @@
         margin-bottom: 0.5rem;
       }
 
+      /* FOOTER */
       footer {
         text-align: center;
         padding: 2rem;
+        font-size: 0.9rem;
         color: #aebfff;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        background: rgba(8, 12, 25, 0.7);
+      }
+
+      /* WHATSAPP */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: linear-gradient(90deg, #25D366, #128C7E);
+        color: white;
+        font-size: 28px;
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        z-index: 999;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(37, 211, 102, 0.9);
+      }
+
+      @media (max-width: 768px) {
+        .hero { flex-direction: column; text-align: center; }
+        .hero img { margin-top: 2rem; }
       }
     </style>
   </head>
@@ -177,43 +216,55 @@
       <section class="hero">
         <div class="hero-text">
           <h2>Equipa tu setup con lo mejor — bienvenido a NEXO</h2>
-          <p>En <strong>NEXO</strong> conectamos tecnología, rendimiento y estilo.</p>
+          <p>
+            En <strong>NEXO</strong> conectamos tecnología, rendimiento y estilo.
+          </p>
+          <p>
+            Desde gamers competitivos hasta creadores de contenido, aquí
+            encontrarás lo que necesitas para llevar tu experiencia al siguiente nivel.
+          </p>
         </div>
 
-        <!-- IMAGEN HERO CORREGIDA -->
+        <!-- CORREGIDO -->
         <img src="imagenes/imagen55.jpg" alt="Setup gamer" />
       </section>
 
       <section class="destacado">
         <h3>🔥 Producto Destacado del Mes</h3>
 
-        <!-- IMAGEN DESTACADO CORREGIDA -->
+        <!-- CORREGIDO -->
         <img src="imagenes/imagen3.jpg" alt="Mouse RGB Pro" />
 
-        <p>Mouse RGB Pro — Precisión y velocidad.</p>
+        <p>
+          Mouse RGB Pro — Precisión, velocidad y estilo. Nuestro top seller para gamers
+          competitivos.
+        </p>
+        <button class="btn-destacado">Ver más</button>
       </section>
 
       <h2>Productos Destacados</h2>
       <div class="grid-productos">
-
         <div class="card">
           <img src="imagenes/imagen3.jpg" alt="Mouse RGB Pro" />
           <h3>Mouse RGB Pro</h3>
           <p>S/ 120.00</p>
+          <p>Sensor óptico 16.000 DPI, cable trenzado y luces RGB dinámicas.</p>
+          <button class="btn-comprar">Comprar</button>
         </div>
-
         <div class="card">
           <img src="imagenes/imagen11.jpg" alt="Teclado Mecánico" />
           <h3>Teclado Mecánico RGB</h3>
           <p>S/ 180.00</p>
+          <p>Switches mecánicos, RGB por tecla y chasis metálico premium.</p>
+          <button class="btn-comprar">Comprar</button>
         </div>
-
         <div class="card">
           <img src="imagenes/imagen72.jpg" alt="Gráfica GTX" />
           <h3>GTX 1660 Super</h3>
           <p>S/ 950.00</p>
+          <p>Rendimiento brutal en 1080p. Doble ventilador y eficiencia térmica.</p>
+          <button class="btn-comprar">Comprar</button>
         </div>
-
       </div>
     </main>
 
@@ -221,15 +272,39 @@
       © 2025 NEXO. Más de <span id="contador">5000</span> gamers confían en nosotros 💜
     </footer>
 
-    <!-- SCRIPT PARA LEER EL JSON -->
+    <div class="popup" id="popup">
+      ⚡ ¡Oferta activa! <strong>Teclados RGB</strong> con 20 % de descuento.
+      <button onclick="window.location='teclados.html'">Ver</button>
+    </div>
+
+    <a
+      href="https://wa.me/51965304331?text=Hola%20NEXO%2C%20quiero%20mejorar%20mi%20setup%20gamer%20🔥"
+      class="whatsapp-float"
+      target="_blank"
+      title="Chatea con NEXO por WhatsApp"
+    >
+      💬
+    </a>
+
     <script>
-      fetch("data/productos.json")
-        .then(res => res.json())
-        .then(json => {
-          console.log("===== PRODUCTOS DESDE JSON =====");
-          console.log(json);
-        });
+      setTimeout(() => {
+        document.getElementById("popup").classList.add("visible");
+      }, 10000);
+
+      let count = 5000;
+      setInterval(() => {
+        count += Math.floor(Math.random() * 5);
+        document.getElementById("contador").textContent = count;
+      }, 2000);
     </script>
 
+    <!-- 📌 SCRIPT JSON AÑADIDO (NO MODIFICA TU DISEÑO) -->
+    <script>
+      fetch("data/productos.json")
+        .then((r) => r.json())
+        .then((data) => {
+          console.log("PRODUCTOS CARGADOS DESDE JSON:", data);
+        });
+    </script>
   </body>
 </html>
