@@ -1,1 +1,5 @@
-
+[
+  { "nombre": "Mouse RGB Pro", "precio": 120 },
+  { "nombre": "Teclado Mecánico RGB", "precio": 180 },
+  { "nombre": "GTX 1660 Super", "precio": 950 }
+]
